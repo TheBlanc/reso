@@ -1,0 +1,8 @@
+<p>Date: <%= @reso.date %></p>
+<p>Time: <%= @reso.time %></p>
+<p>Name: <%= @reso.name %></p>
+<p>Phone Number: <%= @reso.phonenumber %></p>
+<p>Party size: <%= @reso.partysize %></p>
+<p>Notes: <%= @reso.notes %></p>
+<p class=""><%= link_to "Edit Reservation", edit_reservation_url(@reso) %></p>
+<p class=""><%= link_to "Cancel Reservation", reservation_url(@reso), method: :delete %></p>

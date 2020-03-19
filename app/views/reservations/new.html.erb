@@ -1,0 +1,10 @@
+<h1>Make A Reservation</h1>
+<div class="reso_page">
+  <div class="errors">
+    <% @reso.errors.messages.each do |attribute, errors| %>
+      <p><%= errors[0].capitalize %></p>
+    <% end %>
+  </div>
+
+  <%= render "reservation_form", reservation: @reso %>
+</div>

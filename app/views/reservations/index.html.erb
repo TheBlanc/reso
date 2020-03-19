@@ -1,0 +1,17 @@
+<h1>Your Restaurant's Reservations</h1>
+<% if @resos.length > 0 %>
+
+  <% @resos.each do |reservation| %>
+      <p>Date: <%= reservation.date %></p>
+      <p>Time: <%= reservation.time %></p>
+      <p>Name: <%= reservation.name %></p>
+      <p>Phone Number: <%= reservation.phonenumber %></p>
+      <p>Party size: <%= reservation.partysize %></p>
+      <p>Notes: <%= reservation.notes %></p>
+      <p class=""><%= link_to "Edit Reservation", edit_reservation_url(reservation) %></p>
+      <p class=""><%= link_to "Cancel Reservation", reservation_url(reservation), method: :delete %></p>
+  <% end %>
+
+<% else %>
+      <h3>No Reservations Made</h3>
+<% end %>

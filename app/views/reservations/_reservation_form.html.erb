@@ -1,0 +1,30 @@
+<%= form_for reservation do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+<br>
+
+<%= f.label :partysize %>
+<%= f.number_field :partysize %>
+<br>
+
+<%= f.label :date %>
+<%= f.date_field :date %>
+<br>
+
+<%= f.label :time %>
+<%= f.select :time, hours_of_operation %>
+<br>
+
+<%= f.label :phonenumber %>
+<%= f.text_field :phonenumber %>
+<br>
+
+<%= f.label :notes %>
+<%= f.text_area :notes %>
+<br>
+
+
+<%= f.submit %>
+
+<% end %>
