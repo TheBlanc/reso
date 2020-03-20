@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 
   helper_method :hours_of_operation
-  helper_method :number_of_seats_available
+  helper_method :readable_time
+
 
 
 
@@ -20,9 +21,108 @@ class ApplicationController < ActionController::Base
         openTimeArray << time
       end
     end
-    
+
     return openTimeArray
   end
+
+  def readable_time(time)
+    if time == 600
+      return "6am"
+    elsif time == 650
+      return "6:30am"
+    elsif time == 700
+      return "7am"
+    elsif time == 750
+      return "7:30am"
+    elsif time == 800
+      return "8am"
+    elsif time == 850
+      return "8:30am"
+    elsif time == 900
+      return "9am"
+    elsif time == 950
+      return "9:30am"
+    elsif time == 1000
+      return "10:00am"
+    elsif time == 1050
+      return "10:30am"
+    elsif time == 1100
+      return "11am"
+    elsif time == 1150
+      return "11:30am"
+    elsif time == 1200
+      return "12pm"
+    elsif time == 1250
+      return "12:30pm"
+    elsif time == 1300
+      return "1pm"
+    elsif time == 1350
+      return "1:30pm"
+    elsif time == 1400
+      return "2pm"
+    elsif time == 1450
+      return "2:30pm"
+    elsif time == 1500
+      return "3pm"
+    elsif time == 1550
+      return "3:30pm"
+    elsif time == 1600
+      return "4pm"
+    elsif time == 1650
+      return "4:30pm"
+    elsif time == 1700
+      return "5pm"
+    elsif time == 1750
+      return "5:30pm"
+    elsif time == 1800
+      return "6pm"
+    elsif time == 1850
+      return "6:30pm"
+    elsif time == 1900
+      return "7pm"
+    elsif time == 1950
+      return "7:30pm"
+    elsif time == 2000
+      return "8pm"
+    elsif time == 2050
+      return "8:30pm"
+    elsif time == 2100
+      return "9pm"
+    elsif time == 2150
+      return "9:30pm"
+    elsif time == 2200
+      return "10pm"
+    elsif time == 2250
+      return "10:30pm"
+    elsif time == 2300
+      return "11pm"
+    elsif time == 2350
+      return "11:30pm"
+    elsif time == 2400
+      return "12am"
+    elsif time == 100
+      return "1am"
+    elsif time == 150
+      return "1:30am"
+    elsif time == 200
+      return "2am"
+    elsif time == 250
+      return "2:30am"
+    elsif time == 300
+      return "3am"
+    elsif time == 350
+      return "3:30am"
+    elsif time == 400
+      return "4am"
+    elsif time == 450
+      return "4:30am"
+    elsif time == 500
+      return "5am"
+    elsif time == 550
+      return "5:30am"
+    end
+  end
+
 
   def number_of_seats_available(date, time)
     date = date.to_s

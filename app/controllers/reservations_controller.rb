@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
 
     if @reso.save
       flash[:notice] = "Reservation successfully made."
-      redirect_to reservations_path
+      redirect_to reservation_path(@reso)
     else
       flash[:notice] = "Something went wrong."
       render :new
