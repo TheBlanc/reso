@@ -100,6 +100,8 @@ class ApplicationController < ActionController::Base
       return "11:30pm"
     elsif time == 2400
       return "12am"
+    elsif time == 50
+      return "12:30am"
     elsif time == 100
       return "1am"
     elsif time == 150
