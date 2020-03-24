@@ -1,0 +1,48 @@
+<h1 class="text-center my-md-4">This Week's Reservations</h1>
+<ul class="nav nav-tabs mx-auto" style="max-width: fit-content;">
+  <li class="nav-item">
+    <%= link_to "Today", today_path, :class => "nav-link"  %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (Date.today + 1.days).strftime("%a %b %e"), tomorrow_path, :class => "nav-link active"  %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (Date.today + 2.days).strftime("%a %b %e"), twodays_path, :class => "nav-link"  %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (Date.today + 3.days).strftime("%a %b %e"), threedays_path, :class => "nav-link"  %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (Date.today + 4.days).strftime("%a %b %e"), fourdays_path, :class => "nav-link"  %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (Date.today + 5.days).strftime("%a %b %e"), fivedays_path, :class => "nav-link"  %>
+  </li>
+  <li class="nav-item">
+    <%= link_to (Date.today + 6.days).strftime("%a %b %e"), sixdays_path, :class => "nav-link"  %>
+  </li>
+</ul>
+
+<div class="mx-auto" style="max-width: 500px;">
+  <h4 class="text-center my-md-3"><%= (Date.today + 1.days).strftime("%A %b %e, %Y") %></h4>
+
+  <% if @resos.length > 0 %>
+
+    <% @resos.each do |reservation| %>
+      <% if reservation.date && reservation.time %>
+        <div class="card my-2">
+          <h5 class="card-header"><%=readable_time(reservation.time) %></h5>
+          <div class="card-body">
+            <h5 class="card-title"><%= reservation.name %> <span class="font-weight-normal">for</span> <u><%= reservation.partysize %></u></h5>
+            <p class="card-text"><%= reservation.phonenumber %></p>
+            <p class="card-text"></p>
+            <%= link_to "View Reservation", reservation_url(reservation), :class => "btn btn-dark" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% else %>
+    <h4 class="text-center my-md-5 font-weight-light">No Reservations</h4>
+  <% end %>
+</div>

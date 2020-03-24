@@ -1,21 +1,35 @@
-<h1 class="text-center my-md-4">Reservations</h1>
+<h1 class="text-center my-md-4">All Reservations</h1>
 <div class="mx-auto" style="max-width: 500px;">
   <% if @resos.length > 0 %>
-
-  <% @resos.each do |reservation| %>
-  <div class="card my-2">
-    <h5 class="card-header"><%= reservation.date.to_formatted_s(:long) %><span class="mx-2">at</span><%=readable_time(reservation.time) %></h5>
-    <div class="card-body">
-      <h5 class="card-title"><%= reservation.name %></h5>
-      <h5 class="card-title"><%= reservation.partysize %> Guests</h5>
-      <p class="card-text"><%= reservation.phonenumber %></p>
-      <p class="card-text"></p>
-      <%= link_to "View Reservation", reservation_url(reservation), :class => "btn btn-dark" %>
-    </div>
-  </div>
-  <% end %>
-
+    <% prevResDate = nil %>
+    <% @resos.each do |reservation| %>
+      <% if reservation.date && reservation.time %>
+        <% if reservation.date == prevResDate %>
+          <div class="card my-2">
+            <h5 class="card-header"><%=readable_time(reservation.time) %></h5>
+            <div class="card-body">
+              <h5 class="card-title"><%= reservation.name %> <span class="font-weight-normal">for</span> <u><%= reservation.partysize %></u></h5>
+              <p class="card-text"><%= reservation.phonenumber %></p>
+              <p class="card-text"></p>
+              <%= link_to "View Reservation", reservation_url(reservation), :class => "btn btn-dark" %>
+            </div>
+          </div>
+        <% else %>
+        <h4 class="text-center mt-md-4"><%= reservation.date.strftime("%A - %b %e, %Y") %></h4>
+        <div class="card my-2">
+          <h5 class="card-header"><%=readable_time(reservation.time) %></h5>
+          <div class="card-body">
+            <h5 class="card-title"><%= reservation.name %> <span class="font-weight-normal">for</span> <u><%= reservation.partysize %></u></h5>
+            <p class="card-text"><%= reservation.phonenumber %></p>
+            <p class="card-text"></p>
+            <%= link_to "View Reservation", reservation_url(reservation), :class => "btn btn-dark" %>
+          </div>
+        </div>
+        <% end %>
+        <% prevResDate = reservation.date %>
+      <% end %>
+    <% end %>
   <% else %>
-  <h3>No Reservations Made</h3>
+    <h4 class="text-center my-md-5">No Reservations Made</h4>
   <% end %>
 </div>
