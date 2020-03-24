@@ -1,30 +1,39 @@
-<h1 class="text-center my-md-4">This Week's Reservations</h1>
-<ul class="nav nav-tabs mx-auto" style="max-width: fit-content;">
-  <li class="nav-item">
-    <%= link_to "Today", today_path, :class => "nav-link active"  %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 1.days.from_now.strftime("%a %b %e"), tomorrow_path, :class => "nav-link"  %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 2.days.from_now.strftime("%a %b %e"), twodays_path, :class => "nav-link"  %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 3.days.from_now.strftime("%a %b %e"), threedays_path, :class => "nav-link"  %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 4.days.from_now.strftime("%a %b %e"), fourdays_path, :class => "nav-link"  %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 5.days.from_now.strftime("%a %b %e"), fivedays_path, :class => "nav-link"  %>
-  </li>
-  <li class="nav-item">
-    <%= link_to 6.days.from_now.strftime("%a %b %e"), sixdays_path, :class => "nav-link"  %>
-  </li>
-</ul>
+<h1 class="text-center my-3 my-lg-4">This Week's Reservations</h1>
+<nav class="navbar navbar-expand-md navbar-light bg-light px-0">
+    <button class="navbar-toggler py-2 my-2 mx-auto bg-white text-dark border-dark" type="button" data-toggle="collapse" data-target="#daysOfWeekContent">
+        Today<span class="px-1" style="font-size: 1rem;">&#x25BC;</span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="daysOfWeekContent">
+      <ul class="navbar-nav nav-tabs mx-auto text-center" style="max-width: fit-content;">
+        <li class="nav-item px-lg-2 text-center">
+          <%= link_to "Today", today_path, :class => "nav-link active font-weight-bold" %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to 1.days.from_now.strftime("%a %b %e"), tomorrow_path, :class => "nav-link "  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to 2.days.from_now.strftime("%a %b %e"), twodays_path, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to 3.days.from_now.strftime("%a %b %e"), threedays_path, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to 4.days.from_now.strftime("%a %b %e"), fourdays_path, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to 5.days.from_now.strftime("%a %b %e"), fivedays_path, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to 6.days.from_now.strftime("%a %b %e"), sixdays_path, :class => "nav-link"  %>
+        </li>
+      </ul>
+    </div>
+
+</nav>
 
 <div class="mx-auto" style="max-width: 500px;">
-  <h4 class="text-center my-md-3"><%= Date.today.strftime("%A %b %e, %Y") %></h4>
+  <h4 class="text-center my-3 my-md-3"><%= Date.today.strftime("%A %b %e, %Y") %></h4>
 
   <% if @resos.length > 0 %>
 

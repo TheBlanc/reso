@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "reservations#index"
+  root "reservations#today"
 
   get "today", to: "reservations#today"
   get "tomorrow", to: "reservations#tomorrow"

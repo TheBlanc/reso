@@ -19,8 +19,33 @@
 
  // Color Variables
  $theme-colors: (
-     
+
  );
+
+ // Responsive Font-size
+ @media (max-width: 425px) {
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  .dayOfWeekNavSm {
+    display: block !important;
+  }
+  .dayOfWeekNavLg {
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 991px) {
+ .nav-link {
+   padding: 0.5rem 0.5rem !important;
+ }
+}
+
+// Secondary Nav
+.dayOfWeekNavSm {
+  display: none !important;
+}
 
 
 @import "bootstrap";
