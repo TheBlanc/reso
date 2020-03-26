@@ -1,5 +1,15 @@
 <h1 class="text-center my-3 my-md-4">All Reservations</h1>
 <div class="mx-auto" style="max-width: 500px;">
+
+  <%= form_tag reservations_path, method: :get do %>
+    <div class="form-row col-12 mx-auto" style="width: fit-content; align-items: center;">
+      <div class="form-group mx-1">
+        <%= date_field_tag :date, params[:date] %>
+      </div>
+      <%= submit_tag "Filter", class: "btn btn-dark mb-3"%>
+    </div>
+  <% end %>
+
   <% if @resos.length > 0 %>
     <% prevResDate = nil %>
     <% @resos.each do |reservation| %>
@@ -29,7 +39,10 @@
         <% prevResDate = reservation.date %>
       <% end %>
     <% end %>
+
+  <% elsif !params[:date] %>
+    <h4 class="text-center my-md-5">Pick a date to search</h4>
   <% else %>
-    <h4 class="text-center my-md-5">No Reservations Made</h4>
+    <h4 class="text-center my-md-5">No resos on this day</h4>
   <% end %>
 </div>

@@ -52,7 +52,8 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @resos = Reservation.all.order(:date).order(:time)
+    reservations = Reservation.where("date = ?", params[:date])
+    @resos = reservations.order(:time)
   end
 
   def today
