@@ -17,13 +17,13 @@
     </div>
     <div class="form-group col-auto">
       <%= f.label :time, class: "d-block"%>
-      <%= f.select(:time, hours_of_operation, {}, { :class => 'form-control form-control-lg' }) %>
+      <%= f.select(:time, hours_of_operation.unshift(nil), {}, { :class => 'form-control form-control-lg' }) %>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-auto">
       <%= f.label :partysize %>
-      <%= f.number_field :partysize, class: "form-control form-control-lg" %>
+      <%= f.select(:partysize, (1..16).to_a.unshift(nil), {}, { :class => 'form-control form-control-lg' }) %>
     </div>
   </div>
   <div class="form-row">
