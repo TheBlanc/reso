@@ -1,17 +1,48 @@
-<h1>Your Restaurant's Reservations</h1>
-<% if @resos.length > 0 %>
+<h1 class="text-center my-3 my-md-4">All Reservations</h1>
+<div class="mx-auto" style="max-width: 500px;">
 
-  <% @resos.each do |reservation| %>
-      <p>Date: <%= reservation.date %></p>
-      <p>Time: <%= reservation.time %></p>
-      <p>Name: <%= reservation.name %></p>
-      <p>Phone Number: <%= reservation.phonenumber %></p>
-      <p>Party size: <%= reservation.partysize %></p>
-      <p>Notes: <%= reservation.notes %></p>
-      <p class=""><%= link_to "Edit Reservation", edit_reservation_url(reservation) %></p>
-      <p class=""><%= link_to "Cancel Reservation", reservation_url(reservation), method: :delete %></p>
+  <%= form_tag reservations_path, method: :get do %>
+    <div class="form-row col-12 mx-auto" style="width: fit-content; align-items: center;">
+      <div class="form-group mx-1">
+        <%= date_field_tag :date, params[:date], class: "form-control form-control-lg" %>
+      </div>
+      <%= submit_tag "Filter", class: "btn btn-dark mb-3"%>
+    </div>
   <% end %>
 
-<% else %>
-      <h3>No Reservations Made</h3>
-<% end %>
+  <% if @resos.length > 0 %>
+    <% prevResDate = nil %>
+    <% @resos.each do |reservation| %>
+      <% if reservation.date && reservation.time %>
+        <% if reservation.date == prevResDate %>
+          <div class="card my-2">
+            <h5 class="card-header"><%=readable_time(reservation.time) %></h5>
+            <div class="card-body">
+              <h5 class="card-title"><%= reservation.name %> <span class="font-weight-normal">for</span> <u><%= reservation.partysize %></u></h5>
+              <p class="card-text"><%= reservation.phonenumber %></p>
+              <p class="card-text"></p>
+              <%= link_to "View Reservation", reservation_url(reservation), :class => "btn btn-dark" %>
+            </div>
+          </div>
+        <% else %>
+        <h4 class="text-center mt-md-4"><%= reservation.date.strftime("%A - %b %e, %Y") %></h4>
+        <div class="card my-2">
+          <h5 class="card-header"><%=readable_time(reservation.time) %></h5>
+          <div class="card-body">
+            <h5 class="card-title"><%= reservation.name %> <span class="font-weight-normal">for</span> <u><%= reservation.partysize %></u></h5>
+            <p class="card-text"><%= reservation.phonenumber %></p>
+            <p class="card-text"></p>
+            <%= link_to "View Reservation", reservation_url(reservation), :class => "btn btn-dark" %>
+          </div>
+        </div>
+        <% end %>
+        <% prevResDate = reservation.date %>
+      <% end %>
+    <% end %>
+
+  <% elsif !params[:date] %>
+    <h4 class="text-center my-md-5">Pick a date to search</h4>
+  <% else %>
+    <h4 class="text-center my-md-5">No resos on this day</h4>
+  <% end %>
+</div>

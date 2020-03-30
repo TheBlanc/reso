@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
 
     if @reso.save
       flash[:notice] = "Reservation successfully made."
-      redirect_to reservations_path
+      redirect_to reservation_path(@reso)
     else
       flash[:notice] = "Something went wrong."
       render :new
@@ -52,14 +52,50 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @resos = Reservation.all
+    reservations = Reservation.where("date = ?", params[:date])
+    @resos = reservations.order(:time)
+  end
+
+  def today
+    reservations = Reservation.where("date = ?", Date.today)
+    @resos = reservations.order(:time)
+  end
+
+  def tomorrow
+    reservations = Reservation.where("date = ?", Date.today + 1.days)
+    @resos = reservations.order(:time)
+  end
+
+  def twodays
+    reservations = Reservation.where("date = ?", Date.today + 2.days)
+    @resos = reservations.order(:time)
+  end
+
+  def threedays
+    reservations = Reservation.where("date = ?", Date.today + 3.days)
+    @resos = reservations.order(:time)
+  end
+
+  def fourdays
+    reservations = Reservation.where("date = ?", Date.today + 4.days)
+    @resos = reservations.order(:time)
+  end
+
+  def fivedays
+    reservations = Reservation.where("date = ?", Date.today + 5.days)
+    @resos = reservations.order(:time)
+  end
+
+  def sixdays
+    reservations = Reservation.where("date = ?", Date.today + 6.days)
+    @resos = reservations.order(:time)
   end
 
   def destroy
     @reso = Reservation.find(params[:id])
     @reso.destroy
 
-    redirect_to user_url(current_user)
+    redirect_to root_url
   end
 
 end

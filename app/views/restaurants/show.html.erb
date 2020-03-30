@@ -1,5 +1,10 @@
-
-<h1><%= @restaurant.name %></h1>
-<h3>Open at: <%= @restaurant.open_at %></h3>
-<h3>Closed at: <%= @restaurant.close_at %></h3>
-<h3>Capacity: <%= @restaurant.capacity %></h3>
+<div class="mx-auto" style="max-width: 500px;">
+  <div class="card mt-5">
+    <div class="card-body mx-auto">
+      <h1 class="card-title"><%= @restaurant.name %></h1>
+      <h4 class="card-text font-weight-normal">Open from: <span class="font-weight-bold"><%= readable_time(@restaurant.open_at) %></span> to <span class="font-weight-bold"><%= readable_time(@restaurant.close_at) %></p>
+      <h4 class="card-text font-weight-normal">Capacity: <%= @restaurant.capacity %></h4>
+      <%= link_to "Settings", edit_restaurant_path(1), :class => "btn btn-primary mt-2"  %>
+    </div>
+  </div>
+</div>

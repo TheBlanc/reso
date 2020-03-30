@@ -1,0 +1,56 @@
+<h1 class="text-center my-3 my-lg-4">This Week's Reservations</h1>
+<nav class="navbar navbar-expand-md navbar-light bg-light px-0">
+    <button class="navbar-toggler py-2 my-2 mx-auto bg-white text-dark border-dark" type="button" data-toggle="collapse" data-target="#daysOfWeekContent">
+        <%= 4.days.from_now.strftime("%a %b %e") %><span class="px-1" style="font-size: 1rem;">&#x25BC;</span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="daysOfWeekContent">
+      <ul class="navbar-nav nav-tabs mx-auto" style="max-width: fit-content;">
+        <li class="nav-item px-lg-2 px-sm-2 text-center">
+          <%= link_to "Today", today_path, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to (Date.today + 1.days).strftime("%a %b %e"), tomorrow_path, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to (Date.today + 2.days).strftime("%a %b %e"), twodays_path, :class => "nav-link "  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to (Date.today + 3.days).strftime("%a %b %e"), threedays_path, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to (Date.today + 4.days).strftime("%a %b %e"), fourdays_path, :class => "nav-link active font-weight-bold"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to (Date.today + 5.days).strftime("%a %b %e"), fivedays_path, :class => "nav-link"  %>
+        </li>
+        <li class="nav-item px-lg-2">
+          <%= link_to (Date.today + 6.days).strftime("%a %b %e"), sixdays_path, :class => "nav-link"  %>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<div class="mx-auto" style="max-width: 500px;">
+  <h4 class="text-center my-3 my-md-3"><%= (Date.today + 4.days).strftime("%A %b %e, %Y") %></h4>
+
+  <% if @resos.length > 0 %>
+
+    <% @resos.each do |reservation| %>
+      <% if reservation.date && reservation.time %>
+        <div class="card my-2">
+          <h5 class="card-header"><%=readable_time(reservation.time) %></h5>
+          <div class="card-body">
+            <h5 class="card-title"><%= reservation.name %> <span class="font-weight-normal">for</span> <u><%= reservation.partysize %></u></h5>
+            <p class="card-text"><%= reservation.phonenumber %></p>
+            <p class="card-text"></p>
+            <%= link_to "View Reservation", reservation_url(reservation), :class => "btn btn-dark" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% else %>
+    <h4 class="text-center my-md-5 font-weight-light">No Reservations</h4>
+  <% end %>
+</div>

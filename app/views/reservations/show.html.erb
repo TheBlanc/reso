@@ -1,8 +1,15 @@
-<p>Date: <%= @reso.date %></p>
-<p>Time: <%= @reso.time %></p>
-<p>Name: <%= @reso.name %></p>
-<p>Phone Number: <%= @reso.phonenumber %></p>
-<p>Party size: <%= @reso.partysize %></p>
-<p>Notes: <%= @reso.notes %></p>
-<p class=""><%= link_to "Edit Reservation", edit_reservation_url(@reso) %></p>
-<p class=""><%= link_to "Cancel Reservation", reservation_url(@reso), method: :delete %></p>
+<h1 class="text-center my-3 my-md-4">Reservation Details</h1>
+<div class="mx-auto" style="max-width: 500px;">
+  <div class="card">
+    <h5 class="card-header"><%= @reso.date.to_formatted_s(:long) %><span class="mx-2">at</span><%=readable_time(@reso.time) %></h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= @reso.name %> <span class="font-weight-normal">for</span> <u><%= @reso.partysize %></u></h5>
+      <h5 class="card-text font-weight-normal"><%= @reso.phonenumber %></h5>
+      <p class="card-text mb-0"><span class="font-weight-bold">Notes: </span></p>
+      <p class="card-text"><%= @reso.notes %></p>
+      <div style="text-align: right;">
+        <%= link_to "Edit Reservation", edit_reservation_url(@reso), :class => "btn btn-light border-secondary ml-auto" %>
+      </div>
+    </div>
+  </div>
+</div>
