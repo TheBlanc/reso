@@ -17,10 +17,20 @@
 
  // Variable Overrides
 
- // Color Variables
- $theme-colors: (
+// Color Variables
+$theme-colors: (
+  "dark": #252527
+);
 
- );
+// Font Overrides
+.navbar-brand {
+  font-family: 'Satisfy', cursive;
+  font-size: 1.65em !important;
+  letter-spacing: 1px;
+  padding-bottom: 0 !important;
+  padding-top: 0.3rem !important;
+
+}
 
  // Responsive Font-size
  @media (max-width: 425px) {
