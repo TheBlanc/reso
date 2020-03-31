@@ -57,37 +57,37 @@ class ReservationsController < ApplicationController
   end
 
   def today
-    reservations = Reservation.where("date = ?", Date.today)
+    reservations = Reservation.where("date = ?", Date.current)
     @resos = reservations.order(:time)
   end
 
   def tomorrow
-    reservations = Reservation.where("date = ?", Date.today + 1.days)
+    reservations = Reservation.where("date = ?", Date.current + 1.days)
     @resos = reservations.order(:time)
   end
 
   def twodays
-    reservations = Reservation.where("date = ?", Date.today + 2.days)
+    reservations = Reservation.where("date = ?", Date.current + 2.days)
     @resos = reservations.order(:time)
   end
 
   def threedays
-    reservations = Reservation.where("date = ?", Date.today + 3.days)
+    reservations = Reservation.where("date = ?", Date.current + 3.days)
     @resos = reservations.order(:time)
   end
 
   def fourdays
-    reservations = Reservation.where("date = ?", Date.today + 4.days)
+    reservations = Reservation.where("date = ?", Date.current + 4.days)
     @resos = reservations.order(:time)
   end
 
   def fivedays
-    reservations = Reservation.where("date = ?", Date.today + 5.days)
+    reservations = Reservation.where("date = ?", Date.current + 5.days)
     @resos = reservations.order(:time)
   end
 
   def sixdays
-    reservations = Reservation.where("date = ?", Date.today + 6.days)
+    reservations = Reservation.where("date = ?", Date.current + 6.days)
     @resos = reservations.order(:time)
   end
 

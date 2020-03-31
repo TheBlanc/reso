@@ -10,29 +10,29 @@
           <%= link_to "Today", today_path, :class => "nav-link"  %>
         </li>
         <li class="nav-item px-lg-2">
-          <%= link_to (Date.today + 1.days).strftime("%a %b %e"), tomorrow_path, :class => "nav-link active font-weight-bold"  %>
+          <%= link_to (Date.current + 1.days).strftime("%a %b %e"), tomorrow_path, :class => "nav-link active font-weight-bold"  %>
         </li>
         <li class="nav-item px-lg-2">
-          <%= link_to (Date.today + 2.days).strftime("%a %b %e"), twodays_path, :class => "nav-link"  %>
+          <%= link_to (Date.current + 2.days).strftime("%a %b %e"), twodays_path, :class => "nav-link"  %>
         </li>
         <li class="nav-item px-lg-2">
-          <%= link_to (Date.today + 3.days).strftime("%a %b %e"), threedays_path, :class => "nav-link"  %>
+          <%= link_to (Date.current + 3.days).strftime("%a %b %e"), threedays_path, :class => "nav-link"  %>
         </li>
         <li class="nav-item px-lg-2">
-          <%= link_to (Date.today + 4.days).strftime("%a %b %e"), fourdays_path, :class => "nav-link"  %>
+          <%= link_to (Date.current + 4.days).strftime("%a %b %e"), fourdays_path, :class => "nav-link"  %>
         </li>
         <li class="nav-item px-lg-2">
-          <%= link_to (Date.today + 5.days).strftime("%a %b %e"), fivedays_path, :class => "nav-link"  %>
+          <%= link_to (Date.current + 5.days).strftime("%a %b %e"), fivedays_path, :class => "nav-link"  %>
         </li>
         <li class="nav-item px-lg-2">
-          <%= link_to (Date.today + 6.days).strftime("%a %b %e"), sixdays_path, :class => "nav-link"  %>
+          <%= link_to (Date.current + 6.days).strftime("%a %b %e"), sixdays_path, :class => "nav-link"  %>
         </li>
       </ul>
     </div>
 </nav>
 
 <div class="mx-auto" style="max-width: 500px;">
-  <h4 class="text-center my-3 my-md-3"><%= (Date.today + 1.days).strftime("%A %b %e, %Y") %></h4>
+  <h4 class="text-center my-3 my-md-3"><%= (Date.current + 1.days).strftime("%A %b %e, %Y") %></h4>
 
   <% if @resos.length > 0 %>
 

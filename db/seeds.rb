@@ -27,7 +27,7 @@ dateArray = []
 # create 150 days in the future
 x = 0
 150.times do
-  date = (Date.today + x.days)
+  date = (Date.current + x.days)
   dateArray << date
   x += 1
 end

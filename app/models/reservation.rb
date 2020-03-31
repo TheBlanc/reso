@@ -4,7 +4,7 @@ class Reservation < ApplicationRecord
   validate :phone_number_format
 
   def date_not_in_past
-    if self.date && self.date < Date.today
+    if self.date && self.date < Date.current
       errors.add(:date, "Date can't be in the past")
     end
   end
