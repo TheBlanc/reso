@@ -16,7 +16,8 @@ restaurant.capacity = 100
 restaurant.save
 
 
-# Seed reservations for demo (* Remove for production *)
+# *** REMOVE FOR PRODUCTION ***
+# (seed reservations for demo)
 namesArray = [ "Hamed M", "Erin D", "Ray M", "Kevin L", "Connor D", 'Maureen H', "Karen L", "Bob L", "Meaghan B", "Luke B", "Paxton B", "Isla B" ]
 phonenumbersArray = [905, 416, 705, 647, 519]
 timeArray = [1700, 1800, 1900, 2000, 2100]
