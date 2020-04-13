@@ -1,6 +1,6 @@
 # Reso
 
-A simple and light-weight reservation app. Reso is designed with small restaurants in mind, to be used by restaurant staff in order to keep their reservations neat and organized.
+A simple and lightweight reservation app. Reso is designed with small restaurants in mind, to be used by restaurant staff in order to keep their reservations neat and organized.
 * View [RESO](https://resorestaurantapp.herokuapp.com/)
 
 ## Getting Started
