@@ -1,12 +1,13 @@
 # Reso
 
 A simple and light-weight reservation app. Reso is designed with small restaurants in mind, to be used by restaurant staff in order to keep their reservations neat and organized.
-* [Deployed Example](https://resorestaurantapp.herokuapp.com/)
+* View [RESO](https://resorestaurantapp.herokuapp.com/)
 
 ## Getting Started
 
-- Clone the repo and run the bundler and db migrations
-- Remove the Reservations seed data in the seeds.rb file (this data is only necessary for the demo), but leave the Restaurant seed data marked "DO NOT REMOVE" (this data is necessary to set the defaults for the Restaurant)
+- Clone the repo, run the bundler and db migrations
+- Remove the 'Reservations' seed data in the seeds.rb file (this data is only necessary for the demo)
+- BUT leave the 'Restaurant' seed data marked "DO NOT REMOVE" (this data is necessary to set the defaults for the 'Restaurant')
 
 ## Built With
 
